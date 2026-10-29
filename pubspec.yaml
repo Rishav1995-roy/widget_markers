@@ -1,0 +1,35 @@
+name: widget_markers
+description: "Use any Flutter widget as a google_maps_flutter marker, with camera-following widget info windows, widget cluster badges, caching and animated moves."
+version: 0.0.1
+homepage: https://github.com/Rishav1995-roy/widget_markers
+repository: https://github.com/Rishav1995-roy/widget_markers
+issue_tracker: https://github.com/Rishav1995-roy/widget_markers/issues
+
+topics:
+  - google-maps
+  - markers
+  - map
+  - widget
+  - clustering
+
+screenshots:
+  - description: Widget markers, a camera-following info window and cluster badges (stand-in map drawn in Flutter).
+    path: doc/demo.gif
+  - description: Example app in light mode (stand-in map).
+    path: doc/screenshot_light.png
+  - description: Example app in dark mode (stand-in map).
+    path: doc/screenshot_dark.png
+
+environment:
+  sdk: ^3.6.0
+  flutter: ">=3.27.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  google_maps_flutter: ">=2.10.0 <3.0.0"
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ">=5.0.0 <7.0.0"

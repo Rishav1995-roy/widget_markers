@@ -1,0 +1,5 @@
+tags:
+  demo:
+    # The demo-asset generator is opt-in: GENERATE_DEMO=1 flutter test --tags demo
+    # (see tool/make_demo.sh). It is skipped in a normal `flutter test` run.
+    skip: "Run through tool/make_demo.sh"

@@ -31,12 +31,20 @@ jobs:
             version: ''
     steps:
       # Actions are pinned to full commit SHAs.
-      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
-      - uses: subosito/flutter-action@44ac965b96f18d999802d4b807e3256d5a3f9fa1 # v2.16.0
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: subosito/flutter-action@1a449444c387b1966244ae4d4f8c696479add0b2 # v2.23.0
         with:
           flutter-version: ${{ matrix.version }}
           channel: stable
           cache: true
+      # The minimum-Flutter leg verifies the published PACKAGE only. example/ is a demo app that
+      # tracks latest dependencies (needs a newer Dart than the package supports), so it is
+      # analyzed and built on stable in its own job.
+      - if: matrix.label == '3.27.4'
+        run: |
+          rm -rf example
+          # Demo/smoke tests that import example/ code cannot run without it.
+          grep -rl --include='*.dart' -E '\.\./example/' lib test tool 2>/dev/null | xargs -r rm -v || true
       - run: flutter pub get
       - if: matrix.label == 'stable'
         run: dart format --output=none --set-exit-if-changed lib test
@@ -47,8 +55,8 @@ jobs:
     name: Publish dry run
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
-      - uses: subosito/flutter-action@44ac965b96f18d999802d4b807e3256d5a3f9fa1 # v2.16.0
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: subosito/flutter-action@1a449444c387b1966244ae4d4f8c696479add0b2 # v2.23.0
         with:
           channel: stable
           cache: true

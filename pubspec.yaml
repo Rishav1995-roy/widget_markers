@@ -1,6 +1,6 @@
 name: widget_markers
 description: "Use any Flutter widget as a google_maps_flutter marker, with camera-following widget info windows, widget cluster badges, caching and animated moves."
-version: 0.0.1
+version: 0.0.2
 homepage: https://github.com/Rishav1995-roy/widget_markers
 repository: https://github.com/Rishav1995-roy/widget_markers
 issue_tracker: https://github.com/Rishav1995-roy/widget_markers/issues

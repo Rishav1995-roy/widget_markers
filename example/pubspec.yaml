@@ -13,6 +13,7 @@ dependencies:
   google_maps_flutter: ^2.19.0
   widget_markers:
     path: ../
+    version: 0.0.2
 
 dev_dependencies:
   flutter_test:
